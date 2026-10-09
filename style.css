@@ -1,0 +1,241 @@
+:root {
+    --dark: #19191B;
+    --gray: #696871;
+    --purple: #44BB8E;
+    --yellow: #F5C32C;
+
+
+}
+html {
+    scroll-padding: -px;
+    scroll-behavior: smooth;
+}
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 999;
+    top: 0;
+    padding-block: 30px;
+}
+.header__container, .hero__container {
+    max-width: 1069px;
+    margin-inline: auto; 
+}
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__list {
+    display: flex;
+    gap: 49px;
+}
+ul {
+    list-style: none;
+
+}
+.header__list-link {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.47px;
+    color: var(--gray);
+    transition: color 0.3s;
+}
+.header__list-link.active {
+    color: var(--dark);
+    border-bottom: 2px solid var(--purple);
+    padding-bottom: 15px;
+}
+.header__list-link:hover {
+    color: var(--dark);
+}
+
+a { 
+    text-decoration: none;
+
+}
+main {
+    margin-top: 141px;
+}
+.hero {
+    padding-block: 70px;
+}
+.hero__container {
+   position: relative;
+}
+.hero__content {
+    max-width: 750px;
+    padding-block: 100px;
+}
+.hero__image {
+    position: absolute;
+    top: 0;
+    right: -275px;
+}
+.hero__title {
+    font-weight: 700;
+    font-size: 80px;
+    letter-spacing: -2.5px;
+    line-height: 77px;
+    color: var(--dark);
+}
+.hero__description {
+    font-family: 'Mulish', sans-serif;
+    font-size: 20px;
+    letter-spacing: -0.63px;
+    line-height: 30px;
+    color: var(--gray);
+    margin-top: 30px;
+}
+.hero__scroll {
+    margin-top: 50px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #E7E7E7;
+  transition: color 0.3s;
+  border-radius: 100px;
+}
+/* Контейнер для всех блоков (обертка) */
+.features {
+    padding-block: 300px;
+}
+
+/* Внутренний контейнер, который центрирует всё на странице */
+.features__container {
+    max-width: 1069px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column; /* Блоки идут друг под другом */
+    gap: 120px; /* Расстояние между первым и вторым блоком */
+}
+
+/* Один блок "Картинка + Текст" */
+.feature {
+    display: flex;          /* Выстраиваем картинку и текст в ряд */
+    align-items: center;    /* Выравниваем их по вертикали (по центру) */
+    justify-content: space-between; /* Распределяем место между ними */
+    gap: 60px;              /* Отступ между картинкой и текстом */
+}
+
+/* ШИРИНА КАРТИНКИ (чтобы она не была огромной) */
+.feature__image {
+    width: 500px;       /* Можно поменять на нужный размер */
+    height: auto;       /* Сохраняет пропорции */
+    object-fit: contain;
+    flex-shrink: 0;     /* Запрещает картинке сжиматься */
+}
+
+/* Блок с текстом */
+.feature__content {
+    max-width: 700px;   /* Ограничиваем ширину текста */
+}
+
+/* Стили для заголовка */
+.feature__title {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 57px;
+    letter-spacing: -1.56px;
+    color: var(--dark);
+    margin-bottom: 20px; /* Отступ от заголовка до текста */
+}
+
+/* Стили для описания */
+.feature__description {
+    font-family: 'Mulish', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.63px;
+    color: var(--gray);
+}
+
+/* ========================================= */
+/* ВОТ ОНО! ВОЛШЕБСТВО ДЛЯ РАЗНЫХ СТОРОН */
+/* ========================================= */
+
+/* Для ВТОРОГО блока (четного) мы переворачиваем ряд */
+.feature:nth-child(even) {
+    flex-direction: row-reverse; 
+    /* Теперь картинка встанет справа, а текст слева */
+}
+.partners {
+    padding-bottom: 80px;
+}
+
+.partners__container {
+    max-width: 1069px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column; /* Ставит картинки сверху, текст снизу */
+    align-items: center;    /* Центрирует всё по горизонтали */
+    gap: 40px;              /* Отступ между картинками и текстом */
+}
+
+.partners__images {
+    display: flex;          /* Ставит картинки в ряд */
+    gap: 40px;              /* Расстояние между картинками */
+}
+
+.partners__img {
+    width: 200px;           /* Ширина картинок */
+    height: auto;
+}
+
+.partners__text {
+    text-align: center;     /* Текст по центру */
+    max-width: 800px;       /* Чтобы текст не растягивался на всю ширину */
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--gray);
+}
+/* ============================== */
+/* ФУТЕР (ПОДВАЛ САЙТА)           */
+/* ============================== */
+
+.footer {
+    background-color: var(--dark); /* Темный фон, используя вашу переменную */
+    padding-block: 40px;           /* Отступы сверху и снизу внутри футера */
+}
+
+.footer__container {
+    max-width: 1069px;             /* Такая же ширина, как у остальных блоков */
+    margin-inline: auto;           /* Центрируем по горизонтали */
+    display: flex;
+    flex-direction: column;        /* Адрес и почта идут друг под другом */
+    align-items: center;           /* Центрируем текст */
+    gap: 15px;                     /* Расстояние между адресом и почтой */
+}
+
+.footer__text {
+    color: var(--gray);            /* Серый цвет для адреса */
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+}
+
+.footer__link {
+    color: white;                  /* Белый цвет для ссылки на почту */
+    font-family: 'Mulish', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;         /* Убираем подчеркивание */
+    transition: color 0.3s;        /* Плавное изменение цвета при наведении */
+}
+
+/* Эффект при наведении на почту */
+.footer__link:hover {
+    color: var(--purple);          /* Меняем цвет на фиолетовый при наведении */
+}
