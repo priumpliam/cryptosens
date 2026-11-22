@@ -3,13 +3,13 @@
     --gray: #696871;
     --purple: #44BB8E;
     --yellow: #F5C32C;
-
-
 }
+
 html {
-    scroll-padding: -px;
     scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Добавлено, чтобы фиксированный хедер не перекрывал заголовки при прокрутке */
 }
+
 * { 
     margin: 0;
     padding: 0;
@@ -19,6 +19,18 @@ html {
 body {
     font-family: 'DM Sans', sans-serif;
 }
+
+a { 
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ============================== */
+/* ШАПКА (HEADER)                 */
+/* ============================== */
 .header {
     position: fixed;
     width: 100%;
@@ -27,61 +39,67 @@ body {
     top: 0;
     padding-block: 30px;
 }
+
 .header__container, .hero__container {
     max-width: 1069px;
     margin-inline: auto; 
 }
+
 .header__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .header__list {
     display: flex;
     gap: 49px;
 }
-ul {
-    list-style: none;
 
-}
 .header__list-link {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 16px; /* Уменьшили размер, как договаривались ранее */
     letter-spacing: -0.47px;
     color: var(--gray);
     transition: color 0.3s;
+    padding-bottom: 15px; /* Чтобы полоска была на одном уровне */
 }
+
 .header__list-link.active {
     color: var(--dark);
     border-bottom: 2px solid var(--purple);
-    padding-bottom: 15px;
 }
+
 .header__list-link:hover {
     color: var(--dark);
 }
 
-a { 
-    text-decoration: none;
-
-}
+/* ============================== */
+/* ГЛАВНЫЙ ЭКРАН (HERO)           */
+/* ============================== */
 main {
     margin-top: 141px;
 }
+
 .hero {
     padding-block: 70px;
 }
+
 .hero__container {
    position: relative;
 }
+
 .hero__content {
     max-width: 750px;
     padding-block: 100px;
 }
+
 .hero__image {
     position: absolute;
     top: 0;
     right: -275px;
 }
+
 .hero__title {
     font-weight: 700;
     font-size: 80px;
@@ -89,6 +107,7 @@ main {
     line-height: 77px;
     color: var(--dark);
 }
+
 .hero__description {
     font-family: 'Mulish', sans-serif;
     font-size: 24px;
@@ -97,63 +116,71 @@ main {
     color: var(--gray);
     margin-top: 30px;
 }
+
 .hero__scroll {
     margin-top: 50px;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #E7E7E7;
-  transition: color 0.3s;
-  border-radius: 100px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E7E7E7;
+    transition: color 0.3s;
+    border-radius: 100px;
 }
-/* Контейнер для всех блоков (обертка) */
+
+/* ============================== */
+/* БЛОКИ С ТЕКСТОМ (FEATURES)     */
+/* ============================== */
 .features {
     padding-block: 300px;
 }
 
-/* Внутренний контейнер, который центрирует всё на странице */
 .features__container {
     max-width: 1069px;
     margin-inline: auto;
     display: flex;
-    flex-direction: column; /* Блоки идут друг под другом */
-    gap: 120px; /* Расстояние между первым и вторым блоком */
+    flex-direction: column;
+    gap: 120px;
 }
 
-/* Один блок "Картинка + Текст" */
 .feature {
-    display: flex;          /* Выстраиваем картинку и текст в ряд */
-    align-items: center;    /* Выравниваем их по вертикали (по центру) */
-    justify-content: space-between; /* Распределяем место между ними */
-    gap: 60px;              /* Отступ между картинкой и текстом */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
 }
 
-/* ШИРИНА КАРТИНКИ (чтобы она не была огромной) */
+/* Класс для переворота блока (Картинка справа, текст слева) */
+.feature--reverse {
+    flex-direction: row-reverse;
+}
+
+/* Убираем старое правило nth-child(even), которое ломало блоки */
+.feature:nth-child(even) {
+    flex-direction: row; 
+}
+
 .feature__image {
-    width: 500px;       /* Можно поменять на нужный размер */
-    height: auto;       /* Сохраняет пропорции */
+    width: 500px;
+    height: auto;
     object-fit: contain;
-    flex-shrink: 0;     /* Запрещает картинке сжиматься */
+    flex-shrink: 0;
 }
 
-/* Блок с текстом */
 .feature__content {
-    max-width: 700px;   /* Ограничиваем ширину текста */
+    max-width: 500px; /* Ограничиваем ширину текста */
 }
 
-/* Стили для заголовка */
 .feature__title {
     font-weight: 700;
     font-size: 50px;
     line-height: 57px;
     letter-spacing: -1.56px;
     color: var(--dark);
-    margin-bottom: 20px; /* Отступ от заголовка до текста */
+    margin-bottom: 20px;
 }
 
-/* Стили для описания */
 .feature__description {
     font-family: 'Mulish', sans-serif;
     font-size: 20px;
@@ -162,15 +189,9 @@ main {
     color: var(--gray);
 }
 
-/* ========================================= */
-/* ВОТ ОНО! ВОЛШЕБСТВО ДЛЯ РАЗНЫХ СТОРОН */
-/* ========================================= */
-
-/* Для ВТОРОГО блока (четного) мы переворачиваем ряд */
-.feature:nth-child(even) {
-    flex-direction: row-reverse; 
-    /* Теперь картинка встанет справа, а текст слева */
-}
+/* ============================== */
+/* ПАРТНЕРЫ (PARTNERS)            */
+/* ============================== */
 .partners {
     padding-bottom: 80px;
 }
@@ -179,96 +200,62 @@ main {
     max-width: 1069px;
     margin-inline: auto;
     display: flex;
-    flex-direction: column; /* Ставит картинки сверху, текст снизу */
-    align-items: center;    /* Центрирует всё по горизонтали */
-    gap: 40px;              /* Отступ между картинками и текстом */
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 .partners__images {
-    display: flex;          /* Ставит картинки в ряд */
-    gap: 40px;              /* Расстояние между картинками */
+    display: flex;
+    gap: 40px;
 }
 
 .partners__img {
-    width: 200px;           /* Ширина картинок */
+    width: 200px;
     height: auto;
 }
 
 .partners__text {
-    text-align: center;     /* Текст по центру */
-    max-width: 800px;       /* Чтобы текст не растягивался на всю ширину */
+    text-align: center;
+    max-width: 800px;
     font-family: 'Mulish', sans-serif;
     font-size: 16px;
     line-height: 24px;
     color: var(--gray);
 }
-/* ============================== */
-/* ФУТЕР (ПОДВАЛ САЙТА)           */
-/* ============================== */
 
+/* ============================== */
+/* ФУТЕР (FOOTER)                 */
+/* ============================== */
 .footer {
-    background-color: var(--dark); /* Темный фон, используя вашу переменную */
-    padding-block: 40px;           /* Отступы сверху и снизу внутри футера */
+    background-color: var(--dark);
+    padding-block: 40px;
 }
 
 .footer__container {
-    max-width: 1069px;             /* Такая же ширина, как у остальных блоков */
-    margin-inline: auto;           /* Центрируем по горизонтали */
+    max-width: 1069px;
+    margin-inline: auto;
     display: flex;
-    flex-direction: column;        /* Адрес и почта идут друг под другом */
-    align-items: center;           /* Центрируем текст */
-    gap: 15px;                     /* Расстояние между адресом и почтой */
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .footer__text {
-    color: var(--gray);            /* Серый цвет для адреса */
+    color: var(--gray);
     font-family: 'Mulish', sans-serif;
     font-size: 16px;
 }
 
 .footer__link {
-    color: white;                  /* Белый цвет для ссылки на почту */
+    color: white;
     font-family: 'Mulish', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    text-decoration: none;         /* Убираем подчеркивание */
-    transition: color 0.3s;        /* Плавное изменение цвета при наведении */
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-/* Эффект при наведении на почту */
 .footer__link:hover {
-    color: var(--purple);          /* Меняем цвет на фиолетовый при наведении */
-}
-/* Убираем автоматическое переворачивание четных блоков, чтобы контролировать всё вручную */
-.feature:nth-child(even) {
-    flex-direction: row; /* По умолчанию все блоки идут картинка-слева, текст-справа */
-}
-
-/* Класс для принудительного переворота (картинка-справа, текст-слева) */
-.feature--reverse {
-    flex-direction: row-reverse;
-}
-/* --- ЖЕСТКАЯ НАСТРОЙКА ЧЕРЕДОВАНИЯ --- */
-
-/* Отключаем старые автоматические перевороты */
-.feature:nth-child(even) {
-    flex-direction: row; 
-}
-
-/* Класс для принудительного переворота (Картинка справа, текст слева) */
-.feature--reverse {
-    flex-direction: row-reverse;
-}
-
-/* Убедимся, что картинки не ломаются и имеют правильный размер */
-.feature__image {
-    width: 500px; 
-    height: auto;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-/* Чтобы текст не прилипал к картинкам */
-.feature__content {
-    max-width: 500px; /* Или другой размер, чтобы текст не растягивался */
+    color: var(--purple);
 }
