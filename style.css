@@ -229,7 +229,7 @@ main {
 /* ============================== */
 .footer {
     background-color: var(--dark);
-    padding-block: 40px;
+    padding-block: 100px;
 }
 
 .footer__container {
