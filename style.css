@@ -248,3 +248,27 @@ main {
 .feature--reverse {
     flex-direction: row-reverse;
 }
+/* --- ЖЕСТКАЯ НАСТРОЙКА ЧЕРЕДОВАНИЯ --- */
+
+/* Отключаем старые автоматические перевороты */
+.feature:nth-child(even) {
+    flex-direction: row; 
+}
+
+/* Класс для принудительного переворота (Картинка справа, текст слева) */
+.feature--reverse {
+    flex-direction: row-reverse;
+}
+
+/* Убедимся, что картинки не ломаются и имеют правильный размер */
+.feature__image {
+    width: 500px; 
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Чтобы текст не прилипал к картинкам */
+.feature__content {
+    max-width: 500px; /* Или другой размер, чтобы текст не растягивался */
+}
