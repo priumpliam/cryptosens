@@ -46,7 +46,7 @@ ul {
 }
 .header__list-link {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: -0.47px;
     color: var(--gray);
     transition: color 0.3s;
