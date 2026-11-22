@@ -228,9 +228,15 @@ main {
 /* ФУТЕР (FOOTER)                 */
 /* ============================== */
 .footer {
-    background-color: var(--dark);
-    padding-block: 150px;
-}
+  background-color: var(--dark);
+    /* Увеличиваем внутренние отступы, чтобы футер стал выше и занял больше места на экране */
+    padding-block: 100px; 
+    /* Добавляем минимальную высоту на всякий случай */
+    min-height: 250px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+ }
 
 .footer__container {
     max-width: 1069px;
