@@ -114,15 +114,25 @@
         const navLinks = document.querySelectorAll('.header__list-link');
         const sections = document.querySelectorAll('header#main, section#features, footer#contacts');
 
-        function updateActiveLink() {
+               function updateActiveLink() {
             let currentSectionId = '';
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 5) {
-                    currentSectionId = section.getAttribute('id');
-                }
-            });
+            // Проверяем, докрутили ли мы до самого низа страницы
+            // (с погрешностью в 5 пикселей, так как браузеры иногда считают по-разному)
+            const isBottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 5;
+
+            if (isBottom) {
+                // Если мы в самом низу, принудительно включаем "Контакты"
+                currentSectionId = 'contacts';
+            } else {
+                // Иначе ищем текущую секцию как раньше
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= sectionTop - 150) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+            }
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
