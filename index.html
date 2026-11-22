@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/favicon.PNG" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header" id="main"> 
         <div class="header__container">
             <nav class="header__nav">
-                <img src="images/cryptosens 7.svg" alt="">
+                <img src="images/cryptosens 7.svg" alt="Логотип">
                 <ul class="header__list">
                     <li class="header__list-item">
-                        <a class="header__list-link active" href="#">Главная</a>
+                        <!-- ИСПРАВЛЕНО: href="#main" для работы скрипта -->
+                        <a class="header__list-link active" href="#main">Главная</a>
                     </li>
                     <li class="header__list-item">
                         <a class="header__list-link" href="#features">О нас</a>
@@ -26,29 +27,28 @@
                         <a class="header__list-link" href="#contacts">Контакты</a>
                     </li>
                 </ul>
-    
             </nav>
         </div>
-
     </header>
+
     <main>
         <section class="hero">
             <div class="hero__container">
                 <div class="hero__content">
-
                     <div class="hero__text">
                         <h1 class="hero__title">Инновационное устройство для взятия биопроб на энтеробиоз</h1>
                         <p class="hero__description">Обеспечивает забор биоматериала на энтеробиоз простым, безопасным и пациентоориентированным методом.
-Устройство объединяет несущую конструкцию, гибкую рабочую пластину и оптимизированную клеевую основу. Оно рассчитано на самостоятельный забор материала дома, безопасную транспортировку до лаборатории и удобную работу врача при микроскопии. Конструкция исключает травматизм, обеспечивает надёжную фиксацию образца и позволяет исключить появление артефактов при исследовании.
-<a href="#features" class="hero__scroll">
-    <img src="images/Down Arrow.svg" alt="" class="hero__scroll-imag">
-</a>
+Устройство объединяет несущую конструкцию, гибкую рабочую пластину и оптимизированную клеевую основу. Оно рассчитано на самостоятельный забор материала дома, безопасную транспортировку до лаборатории и удобную работу врача при микроскопии. Конструкция исключает травматизм, обеспечивает надёжную фиксацию образца и позволяет исключить появление артефактов при исследовании.</p>
+                        <a href="#features" class="hero__scroll">
+                            <img src="images/Down Arrow.svg" alt="Вниз" class="hero__scroll-imag">
+                        </a>
                     </div>
                 </div>
-                <img class="hero__image" src="images/hero.png">
+                <img class="hero__image" src="images/hero.png" alt="Устройство">
             </div>
         </section>
-                     <section class="features" id="features">
+
+        <section class="features" id="features">
             <div class="features__container">
                 
                 <!-- Блок 1: Энтеробиоз (Картинка слева, текст справа) -->
@@ -63,12 +63,12 @@
                     </div>
                 </div>
 
-                <!-- Блок 2: ВАШ НОВЫЙ РАЗДЕЛ (Картинка справа, текст слева) -->
+                <!-- Блок 2: О нас (Картинка справа, текст слева) -->
                 <div class="feature feature--reverse">
-                    <!-- ВАЖНО: Замените путь 'images/ваша_картинка.png' на реальный путь к вашему файлу -->
+                    <!-- ВНИМАНИЕ: Замените 'images/favicon.PNG' на нормальную картинку для этого блока! -->
                     <img class="feature__image" src="images/favicon.PNG" alt="О нас">
                     <div class="feature__content">
-                        <h2 class="feature__title">О нас</h2> <!-- Ваш заголовок -->
+                        <h2 class="feature__title">О нас</h2>
                         <p class="feature__description">
                             CryptoSens — это российский стартап, разрабатывающий инновационное устройство для взятия биопроб на энтеробиоз. Мы решаем практическую проблему, с которой сталкиваются и пациенты, и лаборатории: существующие методы забора материала неэффективны, травматичны, часто снижают качество диагностики и неудобны для самостоятельного использования в домашних условиях. В команде проекта объединены инженеры-конструкторы, практикующие врачи-паразитологи и опытные микроскописты, что дает нам прочное основание для создания качественного российского продукта при поддержке Сеченовского Университета и Фонда содействия инновациям. Разработки производятся на лабораторных базах ведущего института медицинской паразитологии с использованием новейших полимерных материалов и технологий в области 3D – печати, а доступ к клиническому материалу позволяет постоянно тестировать разработки в условиях, имитирующих естественные, вносить улучшения, основываясь на полученных результатах и экспертных заключениях.
                         </p>
@@ -76,7 +76,6 @@
                 </div>
 
                 <!-- Блок 3: Модель (Картинка слева, текст справа) -->
-                <!-- Обратите внимание: здесь НЕТ класса feature--reverse -->
                 <div class="feature">
                     <img class="feature__image" src="images/models.png" alt="Модель">
                     <div class="feature__content">
@@ -89,28 +88,52 @@
 
             </div>
         </section>
-       <section class="partners">
-    <div class="partners__container">
-        
-        <div class="partners__images">
-            <img src="images/icon1.png" alt="Иконка 1" class="partners__img">
-            <img src="images/icon2.png" alt="Иконка 2" class="partners__img">
-        </div>
 
-        <p class="partners__text">
-            «Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап» мероприятия «Платформа университетского технологического предпринимательства» федерального проекта «Технологии»
-        </p>
-
-    </div>
-</section>
-
+        <section class="partners">
+            <div class="partners__container">
+                <div class="partners__images">
+                    <img src="images/icon1.png" alt="Иконка 1" class="partners__img">
+                    <img src="images/icon2.png" alt="Иконка 2" class="partners__img">
+                </div>
+                <p class="partners__text">
+                    «Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап» мероприятия «Платформа университетского технологического предпринимательства» федерального проекта «Технологии»
+                </p>
+            </div>
+        </section>
     </main>
+
     <footer class="footer" id="contacts">
         <div class="footer__container">
-            <p class="footer__text">141401, Московская область, город Химки, ул. Рабочая, д. 2А, стр. 1
-            </p>
+            <p class="footer__text">141401, Московская область, город Химки, ул. Рабочая, д. 2А, стр. 1</p>
             <a href="mailto:cryptosens@mail.ru" class="footer__link">cryptosens@mail.ru</a>
         </div>
     </footer>
+
+    <!-- СКРИПТ ДЛЯ РАБОТЫ МЕНЮ -->
+    <script>
+        const navLinks = document.querySelectorAll('.header__list-link');
+        const sections = document.querySelectorAll('header#main, section#features, footer#contacts');
+
+        function updateActiveLink() {
+            let currentSectionId = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('DOMContentLoaded', updateActiveLink);
+    </script>
 </body>
 </html>
